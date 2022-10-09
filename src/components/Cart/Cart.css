@@ -1,0 +1,18 @@
+.order-summary {
+    /* H5 */
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    /* identical to box height */
+    color: #1C2B35;
+    text-align: center;
+    margin-top: 28px;
+}
+
+.cart-info {
+    padding-left: 23px;
+    padding-top: 50px;
+    line-height: 35px;
+}
