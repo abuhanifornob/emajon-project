@@ -29,10 +29,23 @@ const Shope = () => {
       setCart(savedData);
    },[products])
      
-    const handAddToCart=(product)=>{
-        const newCart=[...cart,product]
+    const handAddToCart=(selectedProduct)=>{
+        let newCart=[];
+        const exsit=cart.find(product=> product.id===selectedProduct.id);
+        if(!exsit){
+            selectedProduct.quantity=1;
+            newCart=[...cart,selectedProduct]
+        }
+        else{
+            const rest =cart.filter(product=> product.id!==selectedProduct.id);
+            exsit.quantity=exsit.quantity+1;
+            newCart=[...rest,exsit]
+
+        }
+
+         
         setCart(newCart)
-        addToDb(product.id);
+        addToDb(selectedProduct.id);
     }
 
     return (
