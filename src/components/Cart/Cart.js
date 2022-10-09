@@ -17,7 +17,7 @@ const Cart = ({cart}) => {
 
 
     return (
-        <div>
+        <div className='cart'>
              <p className='order-summary'>Order Summary</p>
              <div className='cart-info'>
              <p>Selected Items : {cart.length}</p>
