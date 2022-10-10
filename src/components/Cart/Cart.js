@@ -3,8 +3,6 @@ import { getSummiton } from '../../utilities/objectSummition';
 import './Cart.css';
 
 const Cart = ({cart}) => {
-    console.log(cart);
-  
    let totalPrice=0;
    let totalShippingCharge=0;
    let totalQuantity=0;

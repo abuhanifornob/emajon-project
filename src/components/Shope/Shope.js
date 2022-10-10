@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { addToDb, getStoredData } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shope.css'
 
 const Shope = () => {
-    const [products,setProducts]=useState([]);
-    const[cart,setCart]=useState([]);
-    useEffect(()=>{
-       fetch('products.json')
-       .then(res=>res.json())
-       .then(data=>setProducts(data))
+    // const [products,setProducts]=useState([]);
+    const {products,initialData}=useLoaderData();    //return { products, initialData };
+    const[cart,setCart]=useState(initialData);
+    // useEffect(()=>{
+    //    fetch('products.json')
+    //    .then(res=>res.json())
+    //    .then(data=>setProducts(data))
 
-    },[])
+    // },[])
 
-   useEffect(()=>{
-      const storedData=getStoredData();
-      const savedData=[];
-      for(const id in storedData){
-        const findStoredData=products.find(product=> product.id===id);
+//    useEffect(()=>{
+//       const storedData=getStoredData();
+//       const savedData=[];
+//       for(const id in storedData){
+//         const findStoredData=products.find(product=> product.id===id);
         
-        if(findStoredData){
-           const quantity=storedData[id];
-            findStoredData.quantity=quantity;
-           savedData.push(findStoredData);
-        }
-      }
-      setCart(savedData);
-   },[products])
+//         if(findStoredData){
+//            const quantity=storedData[id];
+//             findStoredData.quantity=quantity;
+//            savedData.push(findStoredData);
+//         }
+//       }
+//       setCart(savedData);
+//    },[products])
      
     const handAddToCart=(selectedProduct)=>{
         let newCart=[];
